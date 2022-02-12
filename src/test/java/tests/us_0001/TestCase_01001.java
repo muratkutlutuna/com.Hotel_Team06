@@ -8,5 +8,6 @@ public class TestCase_01001 {
         System.out.println("hatice");
         System.out.println("deneme");
 
+
     }
 }
