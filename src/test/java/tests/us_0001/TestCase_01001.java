@@ -6,5 +6,6 @@ public class TestCase_01001 {
     @Test
     public void test01(){
         System.out.println("hatice");
+        System.out.println("deneme");
     }
 }
