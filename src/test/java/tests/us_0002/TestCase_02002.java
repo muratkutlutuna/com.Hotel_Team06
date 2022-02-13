@@ -7,6 +7,7 @@ public class TestCase_02002 {
     @Test
     public void test(){
 
-        System.out.println("merhaba");
+        System.out.println("merhaba  ");
+
     }
 }
