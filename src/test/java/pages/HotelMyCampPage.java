@@ -11,6 +11,8 @@ public class HotelMyCampPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
+    @FindBy(xpath = "//a[@class='navbar-brand']")
+    public WebElement logo;
 
     @FindBy(xpath = "//a[text()='Log in']")
     public WebElement ilkLoginLinki;
