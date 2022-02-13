@@ -1,6 +1,10 @@
 package tests.us_0007;
 
 
+import org.testng.annotations.Test;
+import utilities.ConfigReader;
+import utilities.Driver;
+
 public class TC_01 {
 
     //HOTELMYCAMP ana sayfasına gidilir
@@ -12,7 +16,12 @@ public class TC_01 {
 
 
     @Test
-    public static void firstPush () {
+    public  void test01 () {
+
+       Driver driver = new Driver();
+
+
+
 
     }
 
