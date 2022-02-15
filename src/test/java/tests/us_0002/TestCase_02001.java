@@ -1,6 +1,5 @@
 package tests.us_0002;
 
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HotelMyCampPage;
@@ -20,5 +19,4 @@ import utilities.Driver;
        hotelMyCampPage.ilkLoginLinki.click();
        Driver.closeDriver();
    }
-
 }
