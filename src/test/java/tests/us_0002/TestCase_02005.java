@@ -1,24 +1,49 @@
 package tests.us_0002;
 
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+import pages.HotelMyCampPage;
+import utilities.ConfigReader;
+import utilities.Driver;
+
 public class TestCase_02005 {
 
-    //https://hotelmycamp.com//  sayfasına gidin
+    @Test
+    public void ListOfUsersYazisiTesti() {
 
-    //"Log in" linki görünülüğünü kontrol edin
+        // https://hotelmycamp.com/ sayfasına gidin
+        Driver.getDriver().get(ConfigReader.getProperty("HMCUrl"));
 
-    //"Log in" linkine tıklayın
+        //"Log in" linki görünülüğünü kontrol edin
+        HotelMyCampPage hotelMyCampPage = new HotelMyCampPage();
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertTrue(hotelMyCampPage.ilkLoginLinki.isDisplayed(), " ilk Login görülemiyor");
 
-    //Username textbox görünürlüğünü kontrol edin
+        //"Log in" linkine tıklayın
+        hotelMyCampPage.ilkLoginLinki.click();
 
-    //Username textbox'a Admin username girilmeli Username : manager
+        //Username textbox görünürlüğünü kontrol edin
+        softAssert.assertTrue(hotelMyCampPage.usernameBox.isDisplayed(), "Username textbox görülemiyor");
 
-    //Password textbox görünürlüğünü kontrol edin
+        //Username textbox'a Admin username girilmeli
+        hotelMyCampPage.usernameBox.sendKeys("manager"); // username: manager
 
-    //Password textbox'a Admin password girilmeli Password  : Manager1!
+        //Password textbox kontrol edin
+        softAssert.assertTrue(hotelMyCampPage.passwordBox.isDisplayed(), " Password textbox görülemiyor ");
 
-    //Login butonunun görünürlüğünü kontrol edin
+        //Password textbox'a Admin password girilmeli  Password  : Manager1!
+        hotelMyCampPage.passwordBox.sendKeys("Manager1! ");
 
-    //Login butonuna tıklayın
+        //Login butonunun görünürlüğünü kontrol edin
+        softAssert.assertTrue(hotelMyCampPage.loginButonu.isDisplayed(), " Login butonunun görülemiyor ");
 
-    //" ListOfUsers  " yazısının görünürlüğünü kontrol edin
+        //Login butonuna tıklayın
+        hotelMyCampPage.loginButonu.click();
+
+        //" ListOfUsers  " yazısının görünürlüğünü kontrol edin
+        softAssert.assertTrue(hotelMyCampPage.basariliGirisYaziElementi.isDisplayed(),"ListOfUsers yazisi görülemiyor ");
+
+        softAssert.assertAll();
+        Driver.closeDriver();
+    }
 }

@@ -28,6 +28,11 @@ public class ReusableMethods {
         FileUtils.copyFile(source, finalDestination);
         return target;
     }
+    public static void webelementinScreenshotAl(WebElement girilemediYazisi, String gorulecekad) throws IOException {
+        File webelementresim=new File("target/screenShot/"+gorulecekad+".jpg");
+        File geciciResim=girilemediYazisi.getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(geciciResim,webelementresim);
+    }
 
     //========Switching Window=====//
     public static void switchToWindow(String targetTitle) {
