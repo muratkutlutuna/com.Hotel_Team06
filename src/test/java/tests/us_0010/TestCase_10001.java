@@ -9,24 +9,20 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import pages.HotelMyCampPage;
+import utilities.ConfigReader;
+import utilities.Driver;
 
 public class TestCase_10001 {
 
-    WebDriver driver;
-    @BeforeClass
-    public void setUp(){
-        WebDriverManager.chromedriver().setup();
-        driver=new ChromeDriver();
-        driver.manage().window().maximize();
-    }
 
     @Test
    public  void roomsTest() {
         //1- "https://www.hotelmycamp.com/" sayfasina gider
-        driver.get("https://www.hotelmycamp.com/");
+        Driver.getDriver().get(ConfigReader.getProperty("HMCUrl"));
 
-        //"Rooms" secenegine tiklar
-        driver.findElement(By.xpath("//a[text()='Rooms']")).click();
+        HotelMyCampPage hotelMyCampPage=new HotelMyCampPage();
+        hotelMyCampPage.roomsElementi.click();
 
 
     }
