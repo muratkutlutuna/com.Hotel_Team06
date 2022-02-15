@@ -3,6 +3,7 @@ package utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -19,8 +20,6 @@ public class Driver {
 
     public static WebDriver getDriver(){
 
-
-
         if(driver==null){   // bu if sayesinde kod calisirken bir kere new keyword ile driver olusturulaca
             // diger kullanimlarda new devreye girmeyecek
             switch (ConfigReader.getProperty("browser")){
@@ -36,6 +35,10 @@ public class Driver {
                 case "opera":
                     WebDriverManager.operadriver().setup();
                     driver=new OperaDriver();
+                    break;
+                case "edge":
+                    WebDriverManager.edgedriver().setup();
+                    driver=new EdgeDriver();
                     break;
                 case "safari":
                     WebDriverManager.safaridriver().setup();
