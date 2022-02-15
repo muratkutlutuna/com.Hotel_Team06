@@ -1,5 +1,4 @@
 package tests.us_0001;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HotelMyCampPage;
@@ -24,5 +23,6 @@ public class TestCase_01001 {
         String expectedIcon = "HOTELMYCAMP";
         String actualIcon = hotelMyCampPage.logo.getText();
         Assert.assertEquals(actualIcon, expectedIcon,"Logo beklenen gibi degil!!");
+
     }
 }
