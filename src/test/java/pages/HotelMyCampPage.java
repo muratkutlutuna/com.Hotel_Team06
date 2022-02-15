@@ -49,6 +49,60 @@ public class HotelMyCampPage {
     public WebElement addHotelSaveButonu;
 
 
+    // us_0008 (Mustafa) WebElementleri
+
+    @FindBy(xpath="//a[.='Log in']")
+    public WebElement hMCAnasayfaLogInLinki;
+
+    @FindBy(xpath = "//input[@id='UserName']")
+    public  WebElement usernameLogInBox;
+
+    @FindBy(xpath = "//input[@id='Password']")
+    public WebElement passwordbox;
+
+    @FindBy(id = "btnSubmit")
+    public WebElement logInButonu;
+
+    @FindBy(xpath = "//a[@id='menuYonetim']")
+    public WebElement SystemManagementYazisi;
+
+    @FindBy(xpath = "//span[.='Hotel Management']")
+    public  WebElement hotelManagementLinkii;
+
+    @FindBy(xpath = "(//i[@class='icon-calendar'])[4]")
+    public WebElement roomReservationsLinki;
+
+    @FindBy(xpath = "//span[.='List Of Reservations']")
+    public WebElement listOfReservationsYazisi;
+
+    @FindBy(xpath = "//span[.='Add Room Reservation ']")
+    public WebElement addRoomReservationLinki;
+
+    @FindBy(className = "caption")
+    public WebElement createHotelRoomReservatıonYazisi;
+
+    @FindBy(xpath = "//select[@title='Select User']")
+    public WebElement dropDownSelectUser;
+
+    @FindBy(xpath = "//select[@id='IDHotelRoom']")
+    public WebElement dropDownSelectHotelRoom;
+
+    @FindBy(xpath = "//input[@id='Price']")
+    public WebElement reservationCreatPrice;
+
+    @FindBy(xpath = "//input[@id='ContactNameSurname']")
+    public WebElement contactNameSurname;
+
+    @FindBy(xpath = "//input[@id=\"Approved\"]")
+    public WebElement approvedKutucugu;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement roomReservationCreatButonu;
+
+    @FindBy(xpath = "//div[.='RoomReservation was inserted successfully']")
+    public WebElement reservationbasariliyazisi;
+
+
 
     public void bekle(int saniye){
         try {
