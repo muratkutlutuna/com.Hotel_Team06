@@ -49,6 +49,14 @@ public class HotelMyCampPage {
     @FindBy(xpath = "//select[@id='AdultCount']")
     public WebElement adultsDropdown;
 
+    @FindBy(xpath = "//input[@value='Check Availability']")
+    public WebElement checkAvailabilityButton;
+
+    @FindBy(xpath = "(//h1[text()='Welcome To Hotelmycamp']/../../../../../.)[2]")
+    public WebElement gecisliResim1;
+
+    @FindBy(xpath = "(//h1[text()='Enjoy A Luxury Experience']/../../../../.)[2]")
+    public WebElement gecisliResim2;
 
 
     @FindBy(xpath = "//a[@class='navbar-brand']")
