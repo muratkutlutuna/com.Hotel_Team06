@@ -12,17 +12,20 @@ import java.time.Duration;
 
 public class Driver {
 
-    private  Driver(){
+    private Driver(){
 
     }
 
-    private static WebDriver  driver;
-
+    private static WebDriver driver;
     public static WebDriver getDriver(){
 
-        if(driver==null){   // bu if sayesinde kod calisirken bir kere new keyword ile driver olusturulaca
+
+
+        if (driver == null) { // bu if sayesinde kod calisirken bir kere new keyword ile driver olusturulacak
+
+
             // diger kullanimlarda new devreye girmeyecek
-            switch (ConfigReader.getProperty("browser")){
+            switch(ConfigReader.getProperty("browser")){
 
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
@@ -44,23 +47,28 @@ public class Driver {
                     WebDriverManager.safaridriver().setup();
                     driver=new SafariDriver();
                     break;
+                case "edge":
+                    WebDriverManager.edgedriver().setup();
+                    driver = new EdgeDriver();
+                    break;
                 default:
                     WebDriverManager.chromedriver().setup();
                     driver=new ChromeDriver();
-            }
+                    break;
 
+            }
         }
 
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         return driver;
+
     }
 
     public static void closeDriver(){
-        if (driver!=null){
-            driver.quit();
-            driver=null;
+        if (driver != null) {
+            driver.close();
         }
-
     }
+
 }
