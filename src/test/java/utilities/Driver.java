@@ -20,7 +20,10 @@ public class Driver {
     public static WebDriver getDriver(){
 
 
+
         if (driver == null) { // bu if sayesinde kod calisirken bir kere new keyword ile driver olusturulacak
+
+
             // diger kullanimlarda new devreye girmeyecek
             switch(ConfigReader.getProperty("browser")){
 
@@ -35,6 +38,10 @@ public class Driver {
                 case "opera":
                     WebDriverManager.operadriver().setup();
                     driver=new OperaDriver();
+                    break;
+                case "edge":
+                    WebDriverManager.edgedriver().setup();
+                    driver=new EdgeDriver();
                     break;
                 case "safari":
                     WebDriverManager.safaridriver().setup();
