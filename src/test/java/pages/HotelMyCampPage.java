@@ -81,6 +81,9 @@ public class HotelMyCampPage {
     @FindBy(xpath = "//input[@title='DateStart']")
     public WebElement dateStartElementi;
 
+    @FindBy(xpath = "//input[@title='DateEnd']")
+    public WebElement dateEndElementi;
+
     @FindBy(xpath = "//label[.='AdultAmount']")
     public WebElement adultAmountElementiBosTiklama;
 
@@ -95,6 +98,36 @@ public class HotelMyCampPage {
 
     @FindBy(xpath = "(//button[@class='btn green'])[1]")
     public WebElement generalDataSaveButonu;
+
+    @FindBy(xpath = "//a[@href='#tab_properties']")
+    public WebElement roomReservationsPropertiesElementi;
+
+    @FindBy(xpath = "//select[@id='lkpBarcodeTypes']")
+    public WebElement propertiesTipElementi;
+
+    @FindBy(xpath = "//input[@id='txtBarcodeCode']")
+    public WebElement propertiesCodeElementi;
+
+    @FindBy(xpath = "//textarea[@id='txtBarcode']")
+    public WebElement propertiesValueElementi;
+
+    @FindBy(xpath = "(//button[@class='btn green'])[2]")
+    public WebElement propertiesSaveElementi;
+
+    @FindBy(xpath = "//div[@class='bootbox-body']")
+    public WebElement valueaddedElementi;
+
+    @FindBy(xpath = "//button[@class='btn btn-primary']")
+    public WebElement valueaddedOkButonuElementi;
+
+    @FindBy(xpath = "//button[@id='btnDelete']")
+    public WebElement generalDataDeleteButonu;
+
+    @FindBy(xpath = "//div[@class='bootbox-body']")
+    public WebElement reservationSilinmesiOnayiElementi;
+
+    @FindBy(xpath = "//div[@class='bootbox-body']")
+    public WebElement updatedSuccessfullyYazisiElementi;
 
 
     public void bekle(int saniye){

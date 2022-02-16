@@ -1,5 +1,6 @@
 package tests.us_0009;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HotelMyCampPage;
 import utilities.JSUtils;
@@ -15,11 +16,16 @@ public class TestCase_09003 {
         hotelMyCampPage = new HotelMyCampPage();
 
         hotelMyCampPage.dateStartElementi.clear();
-        hotelMyCampPage.dateStartElementi.sendKeys("01/12/2022");
+        hotelMyCampPage.dateStartElementi.sendKeys("01/06/2022");
+
+        hotelMyCampPage.dateEndElementi.clear();
+        hotelMyCampPage.dateEndElementi.sendKeys("01/08/2022");
+
         hotelMyCampPage.adultAmountElementiBosTiklama.click();
         hotelMyCampPage.bekle(2);
 
         JSUtils.scrollIntoVIewJS(hotelMyCampPage.adultAmountElementi);
+
         hotelMyCampPage.adultAmountElementi.clear();
         hotelMyCampPage.adultAmountElementi.sendKeys("5");
 
@@ -29,6 +35,8 @@ public class TestCase_09003 {
         hotelMyCampPage.notesElementi.clear();
         hotelMyCampPage.notesElementi.sendKeys("Hosgeldiniz");
         hotelMyCampPage.generalDataSaveButonu.click();
+
+        Assert.assertTrue(hotelMyCampPage.updatedSuccessfullyYazisiElementi.isDisplayed());
 
 
     }
