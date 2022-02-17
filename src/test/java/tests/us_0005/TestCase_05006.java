@@ -33,5 +33,7 @@ public class TestCase_05006 {
         actions.sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN).perform();
         hotelMyCampPage.bekle(2);
         Assert.assertTrue(hotelMyCampPage.propertiesSaveButonElementi.isEnabled());
+
+
     }
 }

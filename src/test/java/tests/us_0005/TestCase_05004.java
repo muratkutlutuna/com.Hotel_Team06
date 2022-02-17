@@ -21,5 +21,6 @@ public class TestCase_05004 {
         Assert.assertTrue( hotelMyCampPage.hotelWasupdatedSuccessfullyYaziElementi.isDisplayed());
         hotelMyCampPage.okButonElementi.click();
 
+
     }
 }

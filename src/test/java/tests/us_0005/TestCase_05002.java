@@ -21,5 +21,6 @@ public class TestCase_05002 {
         ReusableMethods.switchToWindow("Admin - Edit Hotel");
         Assert.assertTrue(hotelMyCampPage.editHotelYaziElementi.isDisplayed());
 
+
     }
 }
