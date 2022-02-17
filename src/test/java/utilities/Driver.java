@@ -1,5 +1,4 @@
 package utilities;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -7,36 +6,30 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.safari.SafariDriver;
-
 import java.time.Duration;
-
-
 public class Driver {
-    private Driver() {//bunu singleton pattern için yapıyoruz bu classdan birden fazla obje olusturulmaması icin
-
+    private Driver(){
     }
-
     private static WebDriver driver;
-
-    public static WebDriver getDriver() {
+    public static WebDriver getDriver(){
         if (driver == null) { // bu if sayesinde kod calisirken bir kere new keyword ile driver olusturulacak
             // diger kullanimlarda new devreye girmeyecek
-            switch (ConfigReader.getProperty("browser")) {
+            switch(ConfigReader.getProperty("browser")){
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
+                    driver=new ChromeDriver();
                     break;
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
+                    driver=new FirefoxDriver();
                     break;
                 case "opera":
                     WebDriverManager.operadriver().setup();
-                    driver = new OperaDriver();
+                    driver=new OperaDriver();
                     break;
                 case "safari":
                     WebDriverManager.safaridriver().setup();
-                    driver = new SafariDriver();
+                    driver=new SafariDriver();
                     break;
                 case "edge":
                     WebDriverManager.edgedriver().setup();
@@ -44,7 +37,7 @@ public class Driver {
                     break;
                 default:
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
+                    driver=new ChromeDriver();
                     break;
             }
         }
@@ -52,10 +45,9 @@ public class Driver {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         return driver;
     }
-
-    public static void closeDriver() {
+    public static void closeDriver(){
         if (driver != null) {
-            driver.quit();
+            driver.close();
         }
     }
 }
