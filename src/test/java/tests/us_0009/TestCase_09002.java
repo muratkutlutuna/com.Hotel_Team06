@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HotelMyCampPage;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class TestCase_09002 {
     HotelMyCampPage hotelMyCampPage;
@@ -22,7 +23,7 @@ public class TestCase_09002 {
         hotelMyCampPage.tableElement.click();
         actions.sendKeys(Keys.ARROW_RIGHT).sendKeys(Keys.ARROW_RIGHT);
         hotelMyCampPage.roomReservationSearchElementi.click();
-        hotelMyCampPage.bekle(2);
+        ReusableMethods.waitFor(2);
         hotelMyCampPage.searchtenSonrakiDetailsElementi.click();
         Assert.assertTrue(hotelMyCampPage.editHotelroomreservatıonElementi.isDisplayed());
     }

@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HotelMyCampPage;
 import utilities.JSUtils;
+import utilities.ReusableMethods;
 
 public class TestCase_09004 {
 
@@ -19,11 +20,11 @@ public class TestCase_09004 {
 
         hotelMyCampPage.propertiesCodeElementi.sendKeys("1234");
         hotelMyCampPage.propertiesValueElementi.sendKeys("Test1234");
-        hotelMyCampPage.bekle(2);
+        ReusableMethods.waitFor(2);
         JSUtils.scrollIntoVIewJS(hotelMyCampPage.propertiesSaveElementi);
         hotelMyCampPage.propertiesSaveElementi.click();
 
-        hotelMyCampPage.bekle(2);
+        ReusableMethods.waitFor(2);
         Assert.assertTrue(hotelMyCampPage.valueaddedElementi.isDisplayed());
         hotelMyCampPage.valueaddedOkButonuElementi.click();
 

@@ -11,7 +11,7 @@ public class TestCase_10003 {
         ikinciTest.advancedSearchTest();
 
         HotelMyCampPage hotelMyCampPage=new HotelMyCampPage();
-        hotelMyCampPage.doubleRoomSecenekleriElementi.click();
+      //  hotelMyCampPage.doubleRoomSecenekleriElementi.click();
 
 
 
