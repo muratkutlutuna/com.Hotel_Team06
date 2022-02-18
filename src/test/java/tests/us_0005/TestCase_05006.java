@@ -6,34 +6,46 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.Test;
+import pages.HotelListPage;
 import pages.HotelMyCampPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+import utilities.TestBaseRapor;
 
-public class TestCase_05006 {
+public class TestCase_05006 extends TestBaseRapor {
 
-    HotelMyCampPage hotelMyCampPage;
+
 
     @Test
     public void test01() {
+
         TestCase_05002 tc01=new TestCase_05002();
         tc01.test01();
-        HotelMyCampPage hotelMyCampPage = new HotelMyCampPage();
-        hotelMyCampPage.photosButonElementi.click();
-        Assert.assertTrue(hotelMyCampPage.selectFileButonElementi.isEnabled());
+        extentTest=extentReports.createTest("HotelMyCamp us_0005  TestCase_05003","https://hotelmycamp.com test edildi");
+        HotelListPage hotelListPage=new HotelListPage();
 
-        hotelMyCampPage.propertiesButonElementi.click();
-        Select select=new Select( hotelMyCampPage.tipBolumuDropDownElementi);
+        hotelListPage.photosButonElementi.click();
+        extentTest.info("Photos bolumune tiklandigi kontrol edildi");
+
+        Assert.assertTrue(hotelListPage.selectFileButonElementi.isEnabled());
+        extentTest.info("selectFile butonunun tiklanabildigi kontrol edildi");
+
+        hotelListPage.propertiesButonElementi.click();
+        extentTest.info("properties bolumune tiklanabildigi kontrol edildi");
+        Select select=new Select( hotelListPage.tipBolumuDropDownElementi);
+        extentTest.info("dropdown  bolumunden  secim yapilabildigi kontrol edildi");
         select.selectByIndex(2);
-        hotelMyCampPage.properpiesCodeBolumuElementi.sendKeys("11111");
-        hotelMyCampPage.valueBolumuElementi.sendKeys("test");
+
+        hotelListPage.properpiesCodeBolumuElementi.sendKeys("11111");
+        hotelListPage.valueBolumuElementi.sendKeys("test");
+        extentTest.info("alanlarin doldurulabildigi kontrol edildi");
         ReusableMethods.waitFor(2);
         Actions actions=new Actions(Driver.getDriver());
         actions.sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN).perform();
-        hotelMyCampPage.bekle(2);
-        Assert.assertTrue(hotelMyCampPage.propertiesSaveButonElementi.isEnabled());
-
+        ReusableMethods.waitFor(3);
+        Assert.assertTrue(hotelListPage.propertiesSaveButonElementi.isEnabled());
+        extentTest.info("Save butonuna tiklanabildigi kontrol edildi");
 
     }
 }
