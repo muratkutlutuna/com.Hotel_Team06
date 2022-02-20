@@ -1,21 +1,13 @@
 package pages;
 
-import com.github.javafaker.Faker;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 import utilities.ConfigReader;
 import utilities.Driver;
 
 
 public class HotelMyCampPage {
-
-    Actions actions;
-    Faker faker;
-    Select select;
 
     public HotelMyCampPage(){
         PageFactory.initElements(Driver.getDriver(),this);
@@ -77,51 +69,4 @@ public class HotelMyCampPage {
         loginButonu.click();
     }
 
-
-    /////////////////////////////////////////////// KÜBRA     ///////////////////////////////////////////////
-
-    @FindBy(xpath = "//a[@href='/admin/HotelRoomAdmin']\t")
-    public WebElement hotelRoomsLinki;
-
-    @FindBy(xpath = "//a[@class='btn btn-circle btn-default']\t")
-    public WebElement addHotelRoomButonu;
-
-    @FindBy(xpath = "//div[@class='caption']")
-    public WebElement createHotelRoomYazıElementi;
-
-    @FindBy(xpath = "//select[@class='form-control input-lg required']")
-    public WebElement dropdownSelectHotelElement;
-
-    @FindBy(xpath = "//select[@id='IDGroupRoomType']")
-    public WebElement dropdownSelectRoomTypeElementi;
-
-    @FindBy(xpath = "//button[@id='btnSubmit']")
-    public WebElement createHotelRoomSaveButonu;
-
-    @FindBy(xpath = "//div[@class='bootbox-body']")
-    public WebElement başarılıKayıtYazısıElementi;
-
-    @FindBy (xpath = "//button[text()='OK']")
-    public WebElement başarılıKayıtOKButonu;
-
-
-    public void fakerCreateHotelRoom(){
-        actions=new Actions(Driver.getDriver());
-        faker=new Faker();
-        select=new Select(dropdownSelectHotelElement);
-        select.selectByIndex(1);
-        actions.sendKeys(Keys.TAB)
-                .sendKeys(faker.address().zipCode())
-                .sendKeys(Keys.TAB).sendKeys(faker.name().name())
-                .sendKeys(Keys.TAB).sendKeys(faker.address().city())
-                .sendKeys(Keys.TAB).sendKeys(Keys.TAB)
-                .sendKeys("600").perform();
-        select=new Select(dropdownSelectRoomTypeElementi);
-        select.selectByIndex(5);
-        actions.sendKeys(Keys.TAB).sendKeys("1")
-                .sendKeys(Keys.TAB).sendKeys("0")
-                .sendKeys(Keys.TAB).sendKeys(Keys.SPACE).perform();
-
-    }
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }
