@@ -1,5 +1,6 @@
 package tests.us_0005;
 
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HotelListPage;
@@ -18,21 +19,22 @@ public class TestCase_05001 extends TestBaseRapor {
         Driver.getDriver().get(ConfigReader.getProperty("HMCUrl"));
         extentTest=extentReports.createTest("HotelMyCamp us_0005  TestCase_05001","https://hotelmycamp.com test edildi");
 
-
         HotelMyCampPage hotelMyCampPage = new HotelMyCampPage();
         HotelListPage hotelListPage=new HotelListPage();
 
         hotelMyCampPage.girisYap();
         extentTest.info("giris yapildigi kontrol edildi");
-
         hotelListPage.hotelManagementYaziElementi.click();
-        extentTest.info("Management butonuna tiklandigi kontrol edildi");
         hotelListPage.hotelListIkonElementi.click();
-        extentTest.info("Hotel List butonuna tiklandigi kontrol edildi");
         Assert.assertTrue(hotelListPage.listOfHotelYaziElementi.isDisplayed());
-        extentTest.info("List Of Hoet Yazisinin goruldugu kontrol edildi");
+        extentTest.info("Hotel management butonuna  ve ardindan Hotel List butonuna tiklandigi ve List Of Hoet Yazisinin goruldugu kontrol edildi");
 
+        Driver.getDriver().navigate().back();
+        Driver.getDriver().navigate().back();
+        Driver.getDriver().navigate().refresh();
 
+        hotelListPage.logOutButonu.click();
+        extentTest.info("logout butonuna tiklandi.");
 
     }
 }

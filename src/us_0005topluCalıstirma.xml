@@ -2,13 +2,12 @@
 <suite name="belirli classlar">
     <test name="classlar">
         <classes>
-            <!--yorum yazmak icin    -->
+
             <class name="tests.us_0005.TestCase_05001"></class>
             <class name="tests.us_0005.TestCase_05002"></class>
             <class name="tests.us_0005.TestCase_05003"></class>
             <class name="tests.us_0005.TestCase_05004"></class>
             <class name="tests.us_0005.TestCase_05005"></class>
-            <class name="tests.us_0005.TestCase_05006"></class>
 
         </classes>
     </test>

@@ -1,6 +1,7 @@
 package tests.us_0005;
 
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HotelListPage;
@@ -13,20 +14,50 @@ import utilities.TestBaseRapor;
 public class TestCase_05004 extends TestBaseRapor {
 
 
-
     @Test
-    public  void test01() {
-        TestCase_05003 tc01=new TestCase_05003();
-        tc01.test01();
-        extentTest=extentReports.createTest("HotelMyCamp us_0005  TestCase_05004","https://hotelmycamp.com test edildi");
+    public void test01() {
 
+        Driver.getDriver().get(ConfigReader.getProperty("HMCUrl"));
+        extentTest=extentReports.createTest("HotelMyCamp us_0005  TestCase_05001","https://hotelmycamp.com test edildi");
+
+        HotelMyCampPage hotelMyCampPage = new HotelMyCampPage();
         HotelListPage hotelListPage=new HotelListPage();
+        hotelMyCampPage.girisYap();
+        extentTest.info("giris yapildigi kontrol edildi");
+        hotelListPage.hotelManagementYaziElementi.click();
+        hotelListPage.hotelListIkonElementi.click();
+        Assert.assertTrue(hotelListPage.listOfHotelYaziElementi.isDisplayed());
+        extentTest.info("Hotel management butonuna  ve ardindan Hotel List butonuna tiklandigi ve List Of Hoet Yazisinin goruldugu kontrol edildi");
+        ReusableMethods.waitFor(2);
+        hotelListPage.ilkDetailsButonElementi.click();
+        ReusableMethods.switchToWindow("Admin - Edit Hotel");
+        Assert.assertTrue(hotelListPage.editHotelYaziElementi.isDisplayed());
+        extentTest.info("Edit otel yazisinin goruldugu kontrol edildi");
+        ReusableMethods.waitFor(2);
+
+        Actions actions=new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN).perform();
+
+        hotelListPage.deleteButonElementi.click();
+        hotelListPage.deleteButonElementi.click();
+
+        extentTest.info("delete butonuna tiklanabildigi kontrol edildi");
         ReusableMethods.waitFor(3);
 
-        Assert.assertTrue( hotelListPage.hotelWasupdatedSuccessfullyYaziElementi.isDisplayed());
-        extentTest.info("hotel Wasupdated Successfully Yazisinin goruldugu kontrol edildi");
+        Assert.assertTrue( hotelListPage.wouldYouLikeToContinueYaziElementi.isDisplayed());
+        extentTest.info("would You Like To Continue Yazisının goruldugu  kontrol edildi");
+        ReusableMethods.waitFor(3);
         hotelListPage.okButonElementi.click();
-        extentTest.info("hotel Wasupdated Successfully Yazisinin goruldugu kontrol edildi");
+        ReusableMethods.waitFor(2);
+        extentTest.info("OK butonuna tiklanabildigi kontrol edildi");
+        hotelListPage.hataYazisiOkButonuElementi.click();
+
+        actions.moveToElement(hotelListPage.managementElement).perform();
+        ReusableMethods.waitFor(2);
+        hotelListPage.logOutElementi.click();
+
+
+
 
     }
 }

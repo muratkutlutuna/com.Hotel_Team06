@@ -59,7 +59,7 @@ public class HotelListPage {
     @FindBy(xpath = "//button[.='OK']")
     public WebElement okButonElementi;
 
-    @FindBy(xpath = "//button[@id='btnDelete']")
+    @FindBy(xpath = "(//button[@class='btn blue'])[2]")
     public WebElement deleteButonElementi;
 
     @FindBy(xpath = "//a[.='Photos']")
@@ -82,6 +82,18 @@ public class HotelListPage {
 
     @FindBy(xpath = "(//button[@class='btn green'])[2]")
     public WebElement propertiesSaveButonElementi;
+
+    @FindBy(xpath = "//span[@class='username username-hide-on-mobile']")
+    public WebElement managementElement;
+
+    @FindBy(xpath = "//a[@href='/Admin/Account/Logoff']")
+    public WebElement logOutElementi;
+
+    @FindBy(xpath = "//a[.='Log out']")
+    public WebElement logOutButonu;
+
+    @FindBy(xpath = "//button[@class='btn btn-primary']")
+    public WebElement hataYazisiOkButonuElementi;
 
 
 
