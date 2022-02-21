@@ -12,8 +12,8 @@ public class TestCase_10004 {
         ucuncuTest.odaSecilebirligi();
 
         HotelMyCampPage hotelMyCampPage=new HotelMyCampPage();
-      //  Assert.assertTrue(hotelMyCampPage.ilkOdaSecenegiMoonBookNowElementi.isDisplayed());
-      //  hotelMyCampPage.ilkOdaSecenegiMoonBookNowElementi.click();
+        Assert.assertTrue(hotelMyCampPage.ilkOdaSecenegiMoonBookNowElementi.isDisplayed());
+        hotelMyCampPage.ilkOdaSecenegiMoonBookNowElementi.click();
 
 }
 }

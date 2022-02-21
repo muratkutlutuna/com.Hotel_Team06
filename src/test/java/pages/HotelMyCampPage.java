@@ -109,82 +109,6 @@ public class HotelMyCampPage {
     @FindBy(xpath = "//button[@id='btnSubmit']")
     public WebElement addHotelSaveButonu;
 
-//***************************hatice*************************************************
-
-   @FindBy(xpath ="//span[.='Hotel Management']" )
-    public WebElement hotelManagementYaziElementi;
-
-    @FindBy(xpath = "//span[text()='List Of Hotels']")
-    public WebElement listOfHotelYaziElementi;
-
-    @FindBy(xpath = "(//i[@class='icon-calendar'])[2]")
-    public WebElement hotelListIkonElementi;
-
-    @FindBy(xpath = "(//a[@class='btn btn-xs default'])[1]")
-    public WebElement ilkDetailsButonElementi;
-
-    @FindBy(xpath = "(//div[@class='portlet-title'])[1]")
-    public WebElement editHotelYaziElementi;
-
-    @FindBy(xpath = "//div[@class='portlet-title'][2]")
-    public WebElement hotelDataYaziElementi;
-
-    @FindBy(xpath = "//input[@id='Code']")
-    public WebElement codeKutusuElementi;
-
-    @FindBy(id = "Name")
-    public WebElement nameKutusuElementi;
-
-    @FindBy(id = "Address")
-    public WebElement addressKutusuElementi;
-
-    @FindBy(id = "Phone")
-    public WebElement phoneKutusuElementi;
-
-    @FindBy(id = "Email")
-    public WebElement emailKutusuElementi;
-
-    @FindBy(xpath = "//select[@id='IDGroup']")
-    public WebElement dropdownElementi;
-
-    @FindBy(xpath = "(//button[@class='btn green'])[1]")
-    public WebElement saveButonElementi;
-
-    @FindBy(xpath = "//div[.='Hotel was updated successfully']")
-    public  WebElement hotelWasupdatedSuccessfullyYaziElementi;
-
-    @FindBy(xpath = "//div[.='Would you like to continue?']")
-    public WebElement wouldYouLikeToContinueYaziElementi;
-
-    @FindBy(xpath = "//button[.='OK']")
-    public WebElement okButonElementi;
-
-    @FindBy(xpath = "//button[@id='btnDelete']")
-    public WebElement deleteButonElementi;
-
-    @FindBy(xpath = "//a[.='Photos']")
-    public  WebElement photosButonElementi;
-
-    @FindBy(xpath = "//a[@class='btn yellow']")
-    public WebElement selectFileButonElementi;
-
-    @FindBy(xpath = "//a[text()='Properties']")
-    public WebElement propertiesButonElementi;
-
-    @FindBy(xpath = "//select[@id='lkpBarcodeTypes']")
-    public WebElement tipBolumuDropDownElementi;
-
-    @FindBy(xpath = "//input[@id='txtBarcodeCode']")
-    public WebElement properpiesCodeBolumuElementi;
-
-    @FindBy(xpath = "//textarea[@id='txtBarcode']")
-    public WebElement valueBolumuElementi;
-
-    @FindBy(xpath = "(//button[@class='btn green'])[2]")
-    public WebElement propertiesSaveButonElementi;
-
-//*************************************hatice***********************************************************
-
 
     @FindBy(xpath = "//a[@class='btn btn-circle btn-default']")
     public WebElement addUserButonu;
@@ -221,9 +145,6 @@ public class HotelMyCampPage {
     @FindBy(xpath = "//input[@title='DateStart']")
     public WebElement dateStartElementi;
 
-    @FindBy(xpath = "//input[@title='DateEnd']")
-    public WebElement dateEndElementi;
-
     @FindBy(xpath = "//label[.='AdultAmount']")
     public WebElement adultAmountElementiBosTiklama;
 
@@ -238,37 +159,6 @@ public class HotelMyCampPage {
 
     @FindBy(xpath = "(//button[@class='btn green'])[1]")
     public WebElement generalDataSaveButonu;
-
-
-    @FindBy(xpath = "//a[@href='#tab_properties']")
-    public WebElement roomReservationsPropertiesElementi;
-
-    @FindBy(xpath = "//select[@id='lkpBarcodeTypes']")
-    public WebElement propertiesTipElementi;
-
-    @FindBy(xpath = "//input[@id='txtBarcodeCode']")
-    public WebElement propertiesCodeElementi;
-
-    @FindBy(xpath = "//textarea[@id='txtBarcode']")
-    public WebElement propertiesValueElementi;
-
-    @FindBy(xpath = "(//button[@class='btn green'])[2]")
-    public WebElement propertiesSaveElementi;
-
-    @FindBy(xpath = "//div[@class='bootbox-body']")
-    public WebElement valueaddedElementi;
-
-    @FindBy(xpath = "//button[@class='btn btn-primary']")
-    public WebElement valueaddedOkButonuElementi;
-
-    @FindBy(xpath = "//button[@id='btnDelete']")
-    public WebElement generalDataDeleteButonu;
-
-    @FindBy(xpath = "//div[@class='bootbox-body']")
-    public WebElement reservationSilinmesiOnayiElementi;
-
-    @FindBy(xpath = "//div[@class='bootbox-body']")
-    public WebElement updatedSuccessfullyYazisiElementi;
 
     // us_0008 (Mustafa) WebElementleri
 
@@ -323,89 +213,6 @@ public class HotelMyCampPage {
     @FindBy(xpath = "//div[.='RoomReservation was inserted successfully']")
     public WebElement reservationbasariliyazisi;
 
-    //===== Rana hanim =====
-
-    @FindBy(xpath = "(//a[text()='Rooms'])[1]")
-    public WebElement roomsElementi;
-
-    @FindBy(xpath = "//input[@id='checkin_date']")
-    public WebElement girisTarihiElementi;
-
-    @FindBy(xpath = "//input[@id='checkout_date']")
-    public WebElement cikisTarihiElementi;
-
-    @FindBy(xpath = "//select[@id='IDRoomType']")
-    public WebElement selectRoomTypeElementi;
-
-    @FindBy(xpath = "//select[@id='AdultCount']")
-    public WebElement selectAdultCountElementi;
-
-    @FindBy(xpath = "//select[@id='ChildrenCount']")
-    public  WebElement childrenElementi;
-
-    @FindBy(xpath = "//input[@id='location']")
-    public WebElement locationElementi;
-
-    @FindBy(xpath = "//input[@value='Search']")
-    public WebElement roomsSearchButonu;
-
-    @FindBy(xpath = "//a[text()='Double room']")
-    public WebElement searchtenSonrakiDoubleRoomElementi;
-
-    @FindBy(xpath = "//a[@href='/Rooms/7']")
-    public WebElement doubleRoomSecenekleriElementi;
-
-    @FindBy(xpath = "(//a[@class='btn-custom'])[1]")
-    public WebElement ilkOdaSecenegiMoonBookNowElementi;
-
-    @FindBy(xpath = "(//a[text()='Log in'])[2]")
-    public WebElement ikinciLoginLinki;
-
-    @FindBy(xpath = "//span[text()='Create a new account']")
-    public WebElement createNewAccountButonu;
-
-    @FindBy(xpath = "//input[@id='UserName']")
-    public WebElement userNameKutusu;
-
-    @FindBy(xpath = "//input[@id='Password']")
-    public WebElement passwordKutusu;
-
-    @FindBy(xpath = "//input[@id='Email']")
-    public WebElement emailKutusu;
-
-    @FindBy(xpath = "//input[@id='NameSurname']")
-    public WebElement fullNameKutusu;
-
-    @FindBy(xpath = "//input[@id='PhoneNo']")
-    public  WebElement phoneNoKutusu;
-
-    @FindBy (xpath = "//input[@id='SSN']")
-    public WebElement socialSecurityNumberKutusu;
-
-    @FindBy (xpath = "//input[@id='DrivingLicense']")
-    public WebElement drivingLicenseKutusu;
-
-    @FindBy (xpath = "//select[@id='IDCountry']")
-    public WebElement selectCountryKutusu;
-
-    @FindBy (xpath = "//select[@id='IDState']")
-    public WebElement selectStateKutusu;
-
-    @FindBy(xpath = "//input[@id='Address']")
-    public WebElement addressKutusu;
-
-    @FindBy (xpath = "//input[@id='WorkingSector']")
-    public WebElement workingSectorKutusu;
-
-    @FindBy (xpath = "//input[@id='BirthDate']")
-    public WebElement birthDateKutusu;
-
-    @FindBy (xpath = "//input[@id='btnSubmit']")
-    public WebElement saveButonu;
-
-    @FindBy(xpath = "//span[text()='ListOfUsers']")
-    public WebElement basariliGirisYaziElementi;
-
 
 
     public void bekle(int saniye){
@@ -435,9 +242,6 @@ public class HotelMyCampPage {
         roomReservation.click();
 
     }
-
-
-
 
 
 

@@ -16,7 +16,7 @@ public class TestCase_10002 {
     @Test
     public void advancedSearchTest(){
 
-       /* TestCase_10001 ilkTest=new TestCase_10001();
+        TestCase_10001 ilkTest=new TestCase_10001();
         ilkTest.roomsTest();
 
         HotelMyCampPage hotelMyCampPage=new HotelMyCampPage();
@@ -45,8 +45,6 @@ public class TestCase_10002 {
 
         //acilan sayfada asagidaki Double linkine tiklanarak oda seceneklerine ulasilir
        hotelMyCampPage.searchtenSonrakiDoubleRoomElementi.click();
-
-        */
 
     }
 

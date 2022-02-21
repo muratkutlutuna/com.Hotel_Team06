@@ -1,17 +1,22 @@
 package tests.us_0007;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HotelMyCampPage;
-import pages.RoomGuncellemePage;
 import utilities.ConfigReader;
 import utilities.Driver;
-import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
 
+import java.io.File;
 import java.io.IOException;
 
-public class TC_03 extends TestBaseRapor  {
+public class TC_03 extends TestBaseRapor {
 
 
     @Test
@@ -23,13 +28,11 @@ public class TC_03 extends TestBaseRapor  {
         //Password'a gecerli bir password girilir
         //Log in butonuna tiklanir
 
-        extentTest=extentReports.createTest("Yönetici oda bilgilerinde değişiklik yapabilmelidir", "Oda bilgilerinde değişiklik yapılması ve kaydedilmesi test edildi");
-
         Driver.getDriver().get(ConfigReader.getProperty("HMCUrl"));
         HotelMyCampPage hotelMyCampPage = new HotelMyCampPage();
         hotelMyCampPage.ilkLoginLinki.click();
-        hotelMyCampPage.usernameBox.sendKeys(ConfigReader.getProperty("HMCValidUsername"));
-        hotelMyCampPage.passwordBox.sendKeys(ConfigReader.getProperty("HMCValidPassword"));
+        hotelMyCampPage.usernameBox.sendKeys("manager");
+        hotelMyCampPage.passwordBox.sendKeys("Manager1!");
         hotelMyCampPage.loginButonu.click();
 
         //"Hotel Management" menüsü tiklanir
@@ -38,13 +41,13 @@ public class TC_03 extends TestBaseRapor  {
 
         hotelMyCampPage.hotelManagementLinki.click();
 
-        RoomGuncellemePage roomGuncellemePage = new RoomGuncellemePage();
+        WebElement roomListLinki = Driver.getDriver().findElement(By.xpath("//a[@href='/admin/HotelRoomAdmin']"));
+        roomListLinki.click();
 
-        roomGuncellemePage.roomListLinki.click();
+        WebElement detailsButton = Driver.getDriver().findElement(By.xpath("//a[@href='./HotelRoomAdmin/Edit?Id=13']"));
+        detailsButton.click();
 
-        roomGuncellemePage.detailsButton.click();
-
-    // buraya kadar az farkla TC-2 ile aynı
+        // buraya kadar az farkla test case - 2 ile aynı
 
 
         //"Hotel" başlıklı dropdown menüye tıklar, bir otel adı seçer
@@ -60,9 +63,7 @@ public class TC_03 extends TestBaseRapor  {
         //"Save" butonu tiklanir
         //Açılan pencerede "HotelRoom was updated successfully" textinin görünürlüğü test edilir ve "OK" tıklanır.
 
-                // ====== TEST DATASI ======= //
-
-        //HAPPY HOTEL
+        //Jasmine
         //1234
         //Haydar Aslan
         //Madrid
@@ -71,52 +72,61 @@ public class TC_03 extends TestBaseRapor  {
         //Double
         //2
         //4
-
-
-        Select select1 = new Select(roomGuncellemePage.hotelSelectDropdownButton);
+        WebElement hotelSelectDropdownButton = Driver.getDriver().findElement(By.xpath("//select[@id='IDHotel']"));
+        Select select1 = new Select(hotelSelectDropdownButton);
         select1.selectByVisibleText("HAPPY HOTEL");
 
-        hotelMyCampPage.addHotelCodeKutusu.clear();
-        hotelMyCampPage.addHotelCodeKutusu.sendKeys("1234");
+        WebElement codeBox = Driver.getDriver().findElement(By.xpath("//input[@id='Code']"));
+        codeBox.clear();
+        codeBox.sendKeys("1234");
 
-        roomGuncellemePage.nameBox.clear();
-        roomGuncellemePage.nameBox.sendKeys("Haydar Aslan");
+        WebElement nameBox = Driver.getDriver().findElement(By.xpath("//input[@id='Name']"));
+        nameBox.clear();
+        nameBox.sendKeys("Haydar Aslan");
 
-       roomGuncellemePage.locationBox.clear();
-       roomGuncellemePage.locationBox.sendKeys("Madrid");
+        WebElement locationBox = Driver.getDriver().findElement(By.xpath("//input[@id='Location']"));
+        locationBox.clear();
+        locationBox.sendKeys("Madrid");
 
-        roomGuncellemePage.descriptionBox.clear();
-        roomGuncellemePage.descriptionBox.sendKeys("klımalı oda");
+        WebElement descriptionBox = Driver.getDriver().findElement(By.xpath("//textarea[@tabindex='0']"));
+        descriptionBox.clear();
+        descriptionBox.sendKeys("klımalı oda");
 
-        hotelMyCampPage.reservationCreatPrice.clear();
-        hotelMyCampPage.reservationCreatPrice.sendKeys("250");
+        WebElement priceBox = Driver.getDriver().findElement(By.xpath("//input[@id='Price']"));
+        priceBox.clear();
+        priceBox.sendKeys("250");
 
-        Select select2 = new Select(roomGuncellemePage.roomTypeDropdownButton);
+
+        WebElement roomTypeDropdownButton = Driver.getDriver().findElement(By.xpath("//select[@id='IDGroupRoomType']"));
+        Select select2 = new Select(roomTypeDropdownButton);
         select2.selectByVisibleText("Double");
 
-        roomGuncellemePage.maxAdultBox.clear();
-        roomGuncellemePage.maxAdultBox.sendKeys("2");
 
-        roomGuncellemePage.maxChildBox.clear();
-        roomGuncellemePage.maxChildBox.sendKeys("4");
+        WebElement maxAdultBox = Driver.getDriver().findElement(By.xpath("//input[@id='MaxAdultCount']"));
+        maxAdultBox.clear();
+        maxAdultBox.sendKeys("2");
 
+        WebElement maxChildBox = Driver.getDriver().findElement(By.xpath("//input[@id='MaxChildCount']"));
+        maxChildBox.clear();
+        maxChildBox.sendKeys("4");
 
-        if (!roomGuncellemePage.isAvailableBox.isSelected()) {
-            roomGuncellemePage.isAvailableBox.click();
+        WebElement isAvailableBox = Driver.getDriver().findElement(By.xpath("//input[@id='IsAvailable']"));
+        if (!isAvailableBox.isSelected()) {
+            isAvailableBox.click();
         }
 
-        extentTest.info("Oda bilgilerini içeren kutucuklara test verileri basarili olarak giris yapıldı");
 
-        roomGuncellemePage.saveRoomButton.click();
+        WebElement saveRoomButton = Driver.getDriver().findElement(By.xpath("//button[@class='btn green'][1]"));
+        saveRoomButton.click();
+
+        // String basarılıKayıtYazısı  = Driver.getDriver().switchTo().alert().getText();
+      // WebElement basarılıOdaKayıtTexti = Driver.getDriver().findElement(By.xpath("//div[text()='HotelRoom was updated successfully']"));
+       // Assert.assertTrue(basarılıKayıtYazısı.contains("successfully"));
 
 
-       roomGuncellemePage.basarılıOdaKayıtTexti.isDisplayed();
+        //WebElement okButton = Driver.getDriver().findElement(By.xpath("//button[text()='OK']"));
+        //okButton.click();
 
-       extentTest.info("Girilen bilgiler basarili olarak kaydedildi");
-
-       ReusableMethods.waitFor(2); // OK e hemen basılmıyor, o nedenle 2 sn bekletiyoruz
-
-       roomGuncellemePage.okButton.click();
 
 
     }

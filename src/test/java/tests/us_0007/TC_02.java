@@ -1,14 +1,14 @@
 package tests.us_0007;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HotelMyCampPage;
-import pages.RoomGuncellemePage;
 import utilities.ConfigReader;
 import utilities.Driver;
-import utilities.TestBaseRapor;
 
-public class TC_02 extends TestBaseRapor {
+public class TC_02 {
 
     //HOTELMYCAMP ana sayfasına gidilir
     //Login butonuna tiklanir
@@ -23,30 +23,26 @@ public class TC_02 extends TestBaseRapor {
 
     @Test
     public void test02 () {
-
-        extentTest=extentReports.createTest("Yönetici oda bilgileri guncelleme sayfasına giriş yapabilmelidir", "Oda bilgilerini guncellemek için List of Hotel Rooms ve Edit HotelRoom sayfalarına basarili giris test edildi");
-
-
         Driver.getDriver().get(ConfigReader.getProperty("HMCUrl"));
         HotelMyCampPage hotelMyCampPage = new HotelMyCampPage();
         hotelMyCampPage.ilkLoginLinki.click();
-        hotelMyCampPage.usernameBox.sendKeys(ConfigReader.getProperty("HMCValidUsername"));
-        hotelMyCampPage.passwordBox.sendKeys(ConfigReader.getProperty("HMCValidPassword"));
+        hotelMyCampPage.usernameBox.sendKeys("manager");
+        hotelMyCampPage.passwordBox.sendKeys("Manager1!");
         hotelMyCampPage.loginButonu.click();
+        // buraya kadar az farkla birlikte test case ile aynı
 
-    // buraya kadar az farkla birlikte TC_01 ile aynı
 
-       hotelMyCampPage.hotelManagementLinki.click();
+        hotelMyCampPage.hotelManagementLinki.click();
 
-       RoomGuncellemePage roomGuncellemePage = new RoomGuncellemePage();
+        WebElement roomListLinki = Driver.getDriver().findElement(By.xpath("//a[@href='/admin/HotelRoomAdmin']"));
+        roomListLinki.click();
 
-       roomGuncellemePage.roomListLinki.click();
+        WebElement detailsButton = Driver.getDriver().findElement(By.xpath("//a[@href='./HotelRoomAdmin/Edit?Id=13']"));
+        detailsButton.click();
 
-       roomGuncellemePage.detailsButton.click();
+        WebElement editHotelRoom = Driver.getDriver().findElement(By.xpath("//a[text()='Edit Hotelroom']"));
 
-       Assert.assertTrue(roomGuncellemePage.editHotelRoom.isDisplayed(), "Oda bilgileri guncelleme sayfasına basarili giris yapılamadı");
-
-       extentTest.info("Yönetici oda bilgileri guncelleme sayfasına basarili giris yaptı");
+        Assert.assertTrue(editHotelRoom.isDisplayed(), "Oda bilgilerini guncelleme sayfasına basarili giris yapılamadı");
 
 
     }

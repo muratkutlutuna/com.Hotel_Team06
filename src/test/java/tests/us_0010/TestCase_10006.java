@@ -10,7 +10,6 @@ import pages.HotelMyCampPage;
 public class TestCase_10006 {
     @Test
     public void createAccountTesti(){
-        /*
         TestCase_10005 besinciTest=new TestCase_10005();
         besinciTest.loginButonuTesti();
 
@@ -58,8 +57,6 @@ public class TestCase_10006 {
         hotelMyCampPage.birthDateKutusu.sendKeys("11/02/1993");
 
         hotelMyCampPage.saveButonu.click();
-
-         */
 
 
     }
