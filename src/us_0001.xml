@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="user story 1 calistirma">
+    <test name="kutlu test">
+        <packages>
+            <package name="tests.us_0001"/>
+        </packages>
+    </test>
+</suite>
