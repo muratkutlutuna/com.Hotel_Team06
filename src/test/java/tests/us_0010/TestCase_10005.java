@@ -11,7 +11,7 @@ public class TestCase_10005 {
         dorduncuTest.bookNowTesti();
 
         HotelMyCampPage hotelMyCampPage=new HotelMyCampPage();
-        Assert.assertTrue(hotelMyCampPage.ikinciLoginLinki.isDisplayed());
-        hotelMyCampPage.ikinciLoginLinki.click();
+       // Assert.assertTrue(hotelMyCampPage.ikinciLoginLinki.isDisplayed());
+       // hotelMyCampPage.ikinciLoginLinki.click();
     }
 }
