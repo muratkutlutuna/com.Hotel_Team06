@@ -17,7 +17,7 @@ import java.util.function.Function;
 
 public class ReusableMethods {
 
-    public static String getScreenshot(String name) throws IOException {
+    public static String getScreenshot(String name)  {
         // naming the screenshot with the current date to avoid duplication
         String date = new SimpleDateFormat("yyyy,MM,dd,hh,mm,ss").format(new Date());
         // TakesScreenshot is an interface of selenium that takes the screenshot
@@ -27,13 +27,21 @@ public class ReusableMethods {
         String target = System.getProperty("user.dir") + "/test-output/Screenshots/" + name + date + ".png";
         File finalDestination = new File(target);
         // save the screenshot to the path given
-        FileUtils.copyFile(source, finalDestination);
+        try {
+            FileUtils.copyFile(source, finalDestination);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return target;
     }
-    public static void webelementinScreenshotAl(WebElement girilemediYazisi, String gorulecekad) throws IOException {
+    public static void webelementinScreenshotAl(WebElement girilemediYazisi, String gorulecekad)  {
         File webelementresim=new File("target/screenShot/"+gorulecekad+".jpg");
         File geciciResim=girilemediYazisi.getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(geciciResim,webelementresim);
+        try {
+            FileUtils.copyFile(geciciResim,webelementresim);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     //========Element Test Etme=====//
