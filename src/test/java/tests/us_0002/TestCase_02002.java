@@ -1,5 +1,4 @@
 package tests.us_0002;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.GirisLoginPage;
@@ -39,3 +38,4 @@ public class TestCase_02002 extends TestBaseRapor {
         Driver.closeDriver();
     }
 }
+

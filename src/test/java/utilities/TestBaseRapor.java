@@ -3,16 +3,17 @@ package utilities;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public abstract class TestBaseRapor {
+
     protected static ExtentReports extentReports; //extent report'a ilk atamayi yapar
     protected static ExtentTest extentTest; // test pass veya failed gibi bilgileri kaydeder. Ayrica ekran resmi icin de kullaniriz
     protected static ExtentHtmlReporter extentHtmlReporter; // Html raporu duzenler
@@ -49,7 +50,7 @@ public abstract class TestBaseRapor {
         } else if (result.getStatus() == ITestResult.SKIP) { // eğer test çalıştırılmadan geçilmezse
             extentTest.skip("Test Case is skipped: " + result.getName()); // Ignore olanlar
         }
-        Driver.closeDriver();
+        Driver.getDriver().manage().deleteAllCookies();
     }
 
 

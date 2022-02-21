@@ -52,6 +52,7 @@ public class TestCase_02005 extends TestBaseRapor {
         extentTest.info("Log in butonuna tıklandi");
 
         //" ListOfUsers  " yazısının görünürlüğünü kontrol edin
+
         Assert.assertTrue(girisLoginPage.basariliGirisYaziElementi.isDisplayed(),"ListOfUsers yazisi görülemiyor ");
         extentTest.info(" ListOfUsers  yazısınıngörünülüğünü kontrol edildi");
 

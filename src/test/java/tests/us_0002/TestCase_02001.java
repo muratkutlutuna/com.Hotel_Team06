@@ -1,5 +1,6 @@
 package tests.us_0002;
 
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.GirisLoginPage;
@@ -27,4 +28,5 @@ public class TestCase_02001 extends TestBaseRapor {
        extentTest.info("Log in linkine tıklandi");
        Driver.closeDriver();
    }
+
 }
