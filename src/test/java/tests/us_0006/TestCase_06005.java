@@ -45,7 +45,7 @@ public class TestCase_06005 extends TestBaseRapor{
         extentTest.info("faker class'ı kullanılarak adres gönderildi");
         actions.sendKeys(Keys.TAB).sendKeys(Keys.TAB).perform();
         actions.sendKeys("-600").perform();
-        extentTest.info("fiyat için eksi değer girilmemeli.Eksi değer girildiği halde kayıt gerçekleştirildi");
+        extentTest.info("Fiyat için eksi değer girilmemeli.Eksi değer girildiği halde kayıt gerçekleştirildi");
         select=new Select(hotelRoomsPage.dropdownSelectRoomTypeElementi);
         actions.sendKeys(Keys.TAB).perform();
         select.selectByIndex(5);

@@ -61,7 +61,5 @@ public class TestCase_06004 extends TestBaseRapor{
 
         Actions actions=new Actions(Driver.getDriver());
         actions.moveToElement(hotelRoomsPage.sağÜstManagerButonu).click(hotelRoomsPage.logOutButonu).perform();
-
-
     }
 }

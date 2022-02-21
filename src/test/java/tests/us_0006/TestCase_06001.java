@@ -10,7 +10,6 @@ import utilities.TestBaseRapor;
 
 public class TestCase_06001 extends TestBaseRapor{
 
-
     HotelRoomsPage hotelRoomsPage=new HotelRoomsPage();
     HotelMyCampPage hotelMyCampPage=new HotelMyCampPage();
     SoftAssert softAssert=new SoftAssert();
@@ -25,7 +24,6 @@ public class TestCase_06001 extends TestBaseRapor{
 
         Actions actions=new Actions(Driver.getDriver());
         actions.moveToElement(hotelRoomsPage.sağÜstManagerButonu).click(hotelRoomsPage.logOutButonu).perform();
-
 
     }
 

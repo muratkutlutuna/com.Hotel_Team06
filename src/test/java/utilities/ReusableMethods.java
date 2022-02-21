@@ -3,6 +3,8 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
+import org.testng.Assert;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -27,6 +29,21 @@ public class ReusableMethods {
         // save the screenshot to the path given
         FileUtils.copyFile(source, finalDestination);
         return target;
+    }
+    public static void webelementinScreenshotAl(WebElement girilemediYazisi, String gorulecekad) throws IOException {
+        File webelementresim=new File("target/screenShot/"+gorulecekad+".jpg");
+        File geciciResim=girilemediYazisi.getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(geciciResim,webelementresim);
+    }
+
+    //========Element Test Etme=====//
+    public static void navElementCalismasiniGorunurlugunuVeYazisiniKontrolEt(WebElement webElement, String beklenenElementYazisi) {
+        Assert.assertTrue(webElement.isDisplayed(),beklenenElementYazisi+" elementi gorunmuyor!!");
+        Assert.assertTrue(webElement.getText().contains(beklenenElementYazisi),beklenenElementYazisi+" elementinin yazisi yanlis!!");
+        webElement.click();
+        String actualTitle = Driver.getDriver().getTitle();
+        Assert.assertTrue(actualTitle.contains(beklenenElementYazisi),beklenenElementYazisi+" linki calismiyor!!");
+        Driver.getDriver().get(ConfigReader.getProperty("HMCUrl"));
     }
 
     //========Switching Window=====//
