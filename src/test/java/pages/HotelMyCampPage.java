@@ -1,12 +1,22 @@
 package pages;
 
+import com.github.javafaker.Faker;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 import utilities.ConfigReader;
 import utilities.Driver;
 
+
 public class HotelMyCampPage {
+
+
+    Actions actions;
+    Faker faker;
+    Select select;
 
     public HotelMyCampPage(){
         PageFactory.initElements(Driver.getDriver(),this);
@@ -98,6 +108,86 @@ public class HotelMyCampPage {
 
     @FindBy(xpath = "//button[@id='btnSubmit']")
     public WebElement addHotelSaveButonu;
+
+//***************************hatice*************************************************
+
+    @FindBy(xpath ="//span[.='Hotel Management']" )
+    public WebElement hotelManagementYaziElementi;
+
+    @FindBy(xpath = "//span[text()='List Of Hotels']")
+    public WebElement listOfHotelYaziElementi;
+
+    @FindBy(xpath = "(//i[@class='icon-calendar'])[2]")
+    public WebElement hotelListIkonElementi;
+
+    @FindBy(xpath = "(//a[@class='btn btn-xs default'])[1]")
+    public WebElement ilkDetailsButonElementi;
+
+    @FindBy(xpath = "(//div[@class='portlet-title'])[1]")
+    public WebElement editHotelYaziElementi;
+
+    @FindBy(xpath = "//div[@class='portlet-title'][2]")
+    public WebElement hotelDataYaziElementi;
+
+    @FindBy(xpath = "//input[@id='Code']")
+    public WebElement codeKutusuElementi;
+
+    @FindBy(id = "Name")
+    public WebElement nameKutusuElementi;
+
+    @FindBy(id = "Address")
+    public WebElement addressKutusuElementi;
+
+    @FindBy(id = "Phone")
+    public WebElement phoneKutusuElementi;
+
+    @FindBy(id = "Email")
+    public WebElement emailKutusuElementi;
+
+    @FindBy(xpath = "//select[@id='IDGroup']")
+    public WebElement dropdownElementi;
+
+    @FindBy(xpath = "(//button[@class='btn green'])[1]")
+    public WebElement saveButonElementi;
+
+    @FindBy(xpath = "//div[.='Hotel was updated successfully']")
+    public  WebElement hotelWasupdatedSuccessfullyYaziElementi;
+
+    @FindBy(xpath = "//div[.='Would you like to continue?']")
+    public WebElement wouldYouLikeToContinueYaziElementi;
+
+    @FindBy(xpath = "//button[.='OK']")
+    public WebElement okButonElementi;
+
+    @FindBy(xpath = "//button[@id='btnDelete']")
+    public WebElement deleteButonElementi;
+
+    @FindBy(xpath = "//a[.='Photos']")
+    public  WebElement photosButonElementi;
+
+    @FindBy(xpath = "//a[@class='btn yellow']")
+    public WebElement selectFileButonElementi;
+
+    @FindBy(xpath = "//a[text()='Properties']")
+    public WebElement propertiesButonElementi;
+
+    @FindBy(xpath = "//select[@id='lkpBarcodeTypes']")
+    public WebElement tipBolumuDropDownElementi;
+
+    @FindBy(xpath = "//input[@id='txtBarcodeCode']")
+    public WebElement properpiesCodeBolumuElementi;
+
+    @FindBy(xpath = "//textarea[@id='txtBarcode']")
+    public WebElement valueBolumuElementi;
+
+    @FindBy(xpath = "(//button[@class='btn green'])[2]")
+    public WebElement propertiesSaveButonElementi;
+
+//*************************************hatice***********************************************************
+
+
+    @FindBy(xpath = "//a[@class='btn btn-circle btn-default']")
+    public WebElement addUserButonu;
 
     @FindBy(xpath = "//div[@class='bootbox-body']")
     public WebElement addHotelSuccessfully;
@@ -263,5 +353,55 @@ public class HotelMyCampPage {
 
     }
 
-
+<<<<<<< HEAD
 }
+=======
+
+
+    /////////////////////////////////////////////// KÜBRA     ///////////////////////////////////////////////
+
+    @FindBy(xpath = "//a[@href='/admin/HotelRoomAdmin']\t")
+    public WebElement hotelRoomsLinki;
+
+    @FindBy(xpath = "//a[@class='btn btn-circle btn-default']\t")
+    public WebElement addHotelRoomButonu;
+
+    @FindBy(xpath = "//div[@class='caption']")
+    public WebElement createHotelRoomYazıElementi;
+
+    @FindBy(xpath = "//select[@class='form-control input-lg required']")
+    public WebElement dropdownSelectHotelElement;
+
+    @FindBy(xpath = "//select[@id='IDGroupRoomType']")
+    public WebElement dropdownSelectRoomTypeElementi;
+
+    @FindBy(xpath = "//button[@id='btnSubmit']")
+    public WebElement createHotelRoomSaveButonu;
+
+    @FindBy(xpath = "//div[@class='bootbox-body']")
+    public WebElement başarılıKayıtYazısıElementi;
+
+    @FindBy (xpath = "//button[text()='OK']")
+    public WebElement başarılıKayıtOKButonu;
+
+
+    public void fakerCreateHotelRoom(){
+        actions=new Actions(Driver.getDriver());
+        faker=new Faker();
+        select=new Select(dropdownSelectHotelElement);
+        select.selectByIndex(1);
+        actions.sendKeys(Keys.TAB)
+                .sendKeys(faker.address().zipCode())
+                .sendKeys(Keys.TAB).sendKeys(faker.name().name())
+                .sendKeys(Keys.TAB).sendKeys(faker.address().city())
+                .sendKeys(Keys.TAB).sendKeys(Keys.TAB)
+                .sendKeys("600").perform();
+        select=new Select(dropdownSelectRoomTypeElementi);
+        select.selectByIndex(5);
+        actions.sendKeys(Keys.TAB).sendKeys("1")
+                .sendKeys(Keys.TAB).sendKeys("0")
+                .sendKeys(Keys.TAB).sendKeys(Keys.SPACE).perform();
+
+    }
+}
+>>>>>>> main
