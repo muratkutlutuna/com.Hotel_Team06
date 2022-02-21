@@ -1,37 +1,70 @@
 package tests.us_0005;
 
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.HotelListPage;
 import pages.HotelMyCampPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+import utilities.TestBaseRapor;
 
-public class TestCase_05003 {
+public class TestCase_05003 extends TestBaseRapor {
+
 
 
     @Test
     public  void test01() {
-        TestCase_05002 tc01=new TestCase_05002();
-        tc01.test01();
+        Driver.getDriver().get(ConfigReader.getProperty("HMCUrl"));
+        extentTest=extentReports.createTest("HotelMyCamp us_0005  TestCase_05001","https://hotelmycamp.com test edildi");
+
         HotelMyCampPage hotelMyCampPage = new HotelMyCampPage();
+        HotelListPage hotelListPage=new HotelListPage();
 
-        hotelMyCampPage.codeKutusuElementi.clear();
-        hotelMyCampPage.codeKutusuElementi.sendKeys("12345");
-        hotelMyCampPage.nameKutusuElementi.clear();
-        hotelMyCampPage.nameKutusuElementi.sendKeys("Green Garden");
-        hotelMyCampPage.addressKutusuElementi.clear();
-        hotelMyCampPage.addressKutusuElementi.sendKeys("Mugla");
-        hotelMyCampPage.phoneKutusuElementi.clear();
-        hotelMyCampPage.phoneKutusuElementi.sendKeys("123456789");
-        hotelMyCampPage.emailKutusuElementi.clear();
-        hotelMyCampPage.emailKutusuElementi.sendKeys("tatil@tatil.com");
-        Select select=new Select( hotelMyCampPage.dropdownElementi);
+        hotelMyCampPage.girisYap();
+        extentTest.info("giris yapildigi kontrol edildi");
+        hotelListPage.hotelManagementYaziElementi.click();
+        hotelListPage.hotelListIkonElementi.click();
+        Assert.assertTrue(hotelListPage.listOfHotelYaziElementi.isDisplayed());
+        extentTest.info("Hotel management butonuna  ve ardindan Hotel List butonuna tiklandigi ve List Of Hoet Yazisinin goruldugu kontrol edildi");
+        ReusableMethods.waitFor(2);
+        hotelListPage.ilkDetailsButonElementi.click();
+        extentTest.info("Details butonuna tiklandigi kontrol edildi");
+
+        ReusableMethods.switchToWindow("Admin - Edit Hotel");
+        Assert.assertTrue(hotelListPage.editHotelYaziElementi.isDisplayed());
+        extentTest.info("Edit otel yazisinin goruldugu kontrol edildi");
+
+        hotelListPage.codeKutusuElementi.clear();
+        hotelListPage.codeKutusuElementi.sendKeys("12345");
+        hotelListPage.nameKutusuElementi.clear();
+        hotelListPage.nameKutusuElementi.sendKeys("Green Garden");
+        hotelListPage.addressKutusuElementi.clear();
+        hotelListPage.addressKutusuElementi.sendKeys("Mugla");
+        hotelListPage.phoneKutusuElementi.clear();
+        hotelListPage.phoneKutusuElementi.sendKeys("123456789");
+        hotelListPage.emailKutusuElementi.clear();
+        hotelListPage.emailKutusuElementi.sendKeys("tatil@tatil.com");
+        Select select=new Select( hotelListPage.dropdownElementi);
         select.selectByIndex(1);
-        hotelMyCampPage.saveButonElementi.click();
+        extentTest.info("bolumlerin dolduruldugu kontrol edildi");
 
+        hotelListPage.saveButonElementi.click();
+        extentTest.info("save butonuna tiklandigi kontrol edildi");
+        ReusableMethods.waitFor(3);
 
+        //Assert.assertTrue( hotelListPage.hotelWasupdatedSuccessfullyYaziElementi.isDisplayed());
+       // extentTest.info("hotel Wasupdated Successfully Yazisinin goruldugu kontrol edildi");
+
+        hotelListPage.okButonElementi.click();
+        extentTest.info("hotel Wasupdated Successfully Yazisinin goruldugu kontrol edildi");
+
+        Actions actions=new Actions(Driver.getDriver());
+        actions.moveToElement(hotelListPage.managementElement).perform();
+        ReusableMethods.waitFor(2);
+        hotelListPage.logOutElementi.click();
 
     }
 }
