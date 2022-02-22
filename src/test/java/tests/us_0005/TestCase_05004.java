@@ -13,6 +13,8 @@ import utilities.TestBaseRapor;
 
 public class TestCase_05004 extends TestBaseRapor {
 
+    HotelMyCampPage hotelMyCampPage;
+    HotelListPage hotelListPage;
 
     @Test
     public void test01() {
@@ -20,8 +22,8 @@ public class TestCase_05004 extends TestBaseRapor {
         Driver.getDriver().get(ConfigReader.getProperty("HMCUrl"));
         extentTest=extentReports.createTest("HotelMyCamp us_0005  TestCase_05001","https://hotelmycamp.com test edildi");
 
-        HotelMyCampPage hotelMyCampPage = new HotelMyCampPage();
-        HotelListPage hotelListPage=new HotelListPage();
+        hotelMyCampPage = new HotelMyCampPage();
+        hotelListPage=new HotelListPage();
         hotelMyCampPage.girisYap();
         extentTest.info("giris yapildigi kontrol edildi");
         hotelListPage.hotelManagementYaziElementi.click();
@@ -39,7 +41,15 @@ public class TestCase_05004 extends TestBaseRapor {
         actions.sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN).perform();
 
         hotelListPage.deleteButonElementi.click();
-        hotelListPage.deleteButonElementi.click();
+
+       /* if ( hotelListPage.wouldYouLikeToContinueYaziElementi.isDisplayed()){
+
+
+        }else{
+          hotelListPage.deleteButonElementi.click();
+
+        }*/
+
 
         extentTest.info("delete butonuna tiklanabildigi kontrol edildi");
         ReusableMethods.waitFor(3);
@@ -49,12 +59,11 @@ public class TestCase_05004 extends TestBaseRapor {
         ReusableMethods.waitFor(3);
         hotelListPage.okButonElementi.click();
         ReusableMethods.waitFor(2);
-        extentTest.info("OK butonuna tiklanabildigi kontrol edildi");
-        hotelListPage.hataYazisiOkButonuElementi.click();
 
-        actions.moveToElement(hotelListPage.managementElement).perform();
-        ReusableMethods.waitFor(2);
-        hotelListPage.logOutElementi.click();
+
+        // extentTest.info("OK butonuna tiklanabildigi kontrol edildi");
+      //  hotelListPage.hataYazisiOkButonuElementi.click();
+
 
 
 
