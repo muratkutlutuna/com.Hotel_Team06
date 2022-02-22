@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="belirli classlar">
+
+    <test name="classlar">
+        <classes>
+            <!--yorum yazmak icin -->
+            <class name="tests.us_0003.TestCase_03001"></class>
+            <class name="tests.us_0003.TestCase_03002"></class>
+            <class name="tests.us_0003.TestCase_03003"></class>
+            <class name="tests.us_0003.TestCase_03004"></class>
+            <class name="tests.us_0003.TestCase_03005"></class>
+        </classes>
+
+    </test>
+
+
+</suite>
