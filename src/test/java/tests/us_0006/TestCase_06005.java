@@ -16,6 +16,7 @@ public class TestCase_06005 extends TestBaseRapor{
     HotelMyCampPage hotelMyCampPage=new HotelMyCampPage();
     HotelRoomsPage hotelRoomsPage=new HotelRoomsPage();
     SoftAssert softAssert=new SoftAssert();
+
     Actions actions;
     Select select;
     Faker faker;
@@ -63,6 +64,6 @@ public class TestCase_06005 extends TestBaseRapor{
         hotelRoomsPage.başarılıKayıtOKButonu.click();
         extentTest.info("OK butonuna tıklandı");
         hotelMyCampPage.bekle(3);
-        Driver.closeDriver();
+        Driver.getDriver().quit();
     }
 }

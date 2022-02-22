@@ -11,8 +11,6 @@ public class HotelRoomsPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    /////////////////////////////////////////////// KÜBRA LOCATE'LER ///////////////////////////////////////////////
-
     @FindBy(xpath = "//a[@href='/admin/HotelRoomAdmin']\t")
     public WebElement hotelRoomsLinki;
 
@@ -36,11 +34,5 @@ public class HotelRoomsPage {
 
     @FindBy (xpath = "//button[text()='OK']")
     public WebElement başarılıKayıtOKButonu;
-
-    @FindBy (xpath = "//a[@class='dropdown-toggle']")
-    public WebElement sağÜstManagerButonu;
-
-    @FindBy (xpath = "//i[@class='icon-key']")
-    public WebElement logOutButonu;
 
 }

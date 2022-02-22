@@ -37,20 +37,20 @@ public class TestCase_06004 extends TestBaseRapor{
         faker=new Faker();
         select=new Select(hotelRoomsPage.dropdownSelectHotelElement);
         select.selectByIndex(1);
-        extentTest.info("otel adı olarak HAPPY HOTEL seçildi");
+        extentTest.info("Otel adı olarak HAPPY HOTEL seçildi");
         actions.sendKeys(Keys.TAB).sendKeys("0").perform();
         extentTest.info("zip code 0 girildiği halde kayıt gerçekleştirildi");
                 actions.sendKeys(Keys.TAB).sendKeys(faker.name().name()).perform();
-                extentTest.info("faker class'ı kullanılarak isim gönderildi");
+                extentTest.info("Faker class'ı kullanılarak isim gönderildi");
                 actions.sendKeys(Keys.TAB).sendKeys(faker.address().city()).perform();
-        extentTest.info("faker class'ı kullanılarak adres gönderildi");
+        extentTest.info("Faker class'ı kullanılarak adres gönderildi");
                 actions.sendKeys(Keys.TAB).sendKeys(Keys.TAB).perform();
         actions.sendKeys("-600").perform();
-        extentTest.info("fiyat için eksi değer girilmemeli.Eksi değer girildiği halde kayıt gerçekleştirildi");
+        extentTest.info("Fiyat için eksi değer girilmemeli.Eksi değer girildiği halde kayıt gerçekleştirildi");
         select=new Select(hotelRoomsPage.dropdownSelectRoomTypeElementi);
         actions.sendKeys(Keys.TAB).perform();
         select.selectByIndex(5);
-        extentTest.info("otel odası olarak QUEEN seçildi");
+        extentTest.info("Otel odası olarak QUEEN seçildi");
         actions.sendKeys(Keys.TAB).sendKeys("0").perform();
         extentTest.info("Yetişkin sayısı 0 girildiği halde kayıt gerçekleştirildi");
         actions.sendKeys(Keys.TAB).sendKeys("50").perform();
@@ -59,7 +59,6 @@ public class TestCase_06004 extends TestBaseRapor{
         hotelRoomsPage.createHotelRoomSaveButonu.click();
         extentTest.info("Formu kaydetmek için Save butonuna tıklandı");
 
-        Actions actions=new Actions(Driver.getDriver());
-        actions.moveToElement(hotelRoomsPage.sağÜstManagerButonu).click(hotelRoomsPage.logOutButonu).perform();
+
     }
 }

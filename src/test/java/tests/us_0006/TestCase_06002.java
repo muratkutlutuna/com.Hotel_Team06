@@ -1,11 +1,9 @@
 package tests.us_0006;
 
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.HotelMyCampPage;
 import pages.HotelRoomsPage;
-import utilities.Driver;
 import utilities.TestBaseRapor;
 
 
@@ -30,8 +28,6 @@ public class TestCase_06002 extends TestBaseRapor{
         softAssert.assertTrue(hotelRoomsPage.addHotelRoomButonu.isEnabled());
         extentTest.info("addHotelRoom butonunun erişilebilirliği test edildi");
 
-       Actions actions=new Actions(Driver.getDriver());
-       actions.moveToElement(hotelRoomsPage.sağÜstManagerButonu).click(hotelRoomsPage.logOutButonu).perform();
     }
 
 }
