@@ -1,63 +1,62 @@
 package tests.us_0010;
 
 import com.github.javafaker.Faker;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.HotelMyCampPage;
+import pages.UserReservationPage;
+import utilities.Driver;
+import utilities.TestBaseRapor;
 
-public class TestCase_10006 {
+public class TestCase_10006 extends TestBaseRapor {
     @Test
-    public void createAccountTesti(){
+    public void createAccountTesti() {
         TestCase_10005 besinciTest=new TestCase_10005();
         besinciTest.loginButonuTesti();
 
-        HotelMyCampPage hotelMyCampPage=new HotelMyCampPage();
-        Assert.assertTrue(hotelMyCampPage.createNewAccountButonu.isDisplayed());
-        hotelMyCampPage.createNewAccountButonu.click();
+        extentTest=extentReports.createTest("TestCase_10006"," 'Create New Account' butonuna tiklandi ve istenilen bilgiler dolduruldu ve 'Save' butonuna tiklandi.");
 
+        UserReservationPage userReservation_page =new UserReservationPage();
 
-        hotelMyCampPage.userNameKutusu.click();
-        hotelMyCampPage.userNameKutusu.sendKeys("Rrkurt");
+        extentTest.pass(" 'Create New Acoount' butonu goruntulendi.");
+        Assert.assertTrue(userReservation_page.createNewAccountButonu.isDisplayed());
 
-        hotelMyCampPage.passwordKutusu.click();
-        hotelMyCampPage.passwordKutusu.sendKeys("Rna1234..");
+        extentTest.pass("\"Create new account\" a tiklandi.");
+        userReservation_page.createNewAccountButonu.click();
 
-        hotelMyCampPage.emailKutusu.click();
-        hotelMyCampPage.emailKutusu.sendKeys("rt1233@gmail.com");
+        extentTest.info("Yeni hesap olusturmak icin bilgiler dolduruldu ve kaydedildi.");
 
-        hotelMyCampPage.fullNameKutusu.click();
-        hotelMyCampPage.fullNameKutusu.sendKeys("Rana Trz");
+        Actions actions=new Actions(Driver.getDriver());
+        Faker faker=new Faker();
+        actions.click(userReservation_page.userNameKutusu)
+                .sendKeys("aaaaa")
+                .sendKeys(Keys.TAB)
+                .sendKeys("aabbccD1!")
+                .sendKeys(Keys.TAB)
+                .sendKeys("aabbcc@gmail.com")
+                .sendKeys(Keys.TAB)
+                .sendKeys("aaa bbc")
+                .sendKeys(Keys.TAB)
+                .sendKeys("123-456-7899")
+                .sendKeys(Keys.TAB)
+                .sendKeys("1234567890")
+                .sendKeys(Keys.TAB)
+                .sendKeys("123456786")
+                .sendKeys(Keys.TAB)
+                .sendKeys("Turkey")
+                .sendKeys(Keys.TAB)
+                .sendKeys("--")
+                .sendKeys(Keys.TAB)
+                .sendKeys("12 avenue 34 street")
+                .sendKeys(Keys.TAB)
+                .sendKeys("IT")
+                .sendKeys(Keys.TAB)
+                .sendKeys("15/08/1996")
+                .sendKeys(Keys.TAB)
+                .perform();
 
-        hotelMyCampPage.phoneNoKutusu.click();
-        hotelMyCampPage.phoneNoKutusu.sendKeys("123-456-7789");
-
-        hotelMyCampPage.socialSecurityNumberKutusu.click();
-        hotelMyCampPage.socialSecurityNumberKutusu.sendKeys("123-45-6789");
-
-        hotelMyCampPage.drivingLicenseKutusu.click();
-        hotelMyCampPage.drivingLicenseKutusu.sendKeys("12345678");
-
-        hotelMyCampPage.selectCountryKutusu.click();
-        Select selectCountry=new Select(hotelMyCampPage.selectCountryKutusu);
-        selectCountry.selectByVisibleText("United States");
-
-        hotelMyCampPage.selectStateKutusu.click();
-        Select selectState=new Select(hotelMyCampPage.selectStateKutusu);
-        selectState.selectByVisibleText("Florida");
-
-        hotelMyCampPage.addressKutusu.click();
-        hotelMyCampPage.addressKutusu.sendKeys("123 road 45 street");
-
-        hotelMyCampPage.workingSectorKutusu.click();
-        hotelMyCampPage.workingSectorKutusu.sendKeys("IT Sector");
-
-        hotelMyCampPage.birthDateKutusu.click();
-        hotelMyCampPage.birthDateKutusu.sendKeys("11/02/1993");
-
-        hotelMyCampPage.saveButonu.click();
-
-
+        extentTest.pass("Save butonuna tiklandi.");
+        userReservation_page.saveButonu.click();
     }
 }

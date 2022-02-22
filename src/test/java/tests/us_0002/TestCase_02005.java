@@ -41,7 +41,7 @@ public class TestCase_02005 {
         hotelMyCampPage.loginButonu.click();
 
         //" ListOfUsers  " yazısının görünürlüğünü kontrol edin
-        softAssert.assertTrue(hotelMyCampPage.basariliGirisYaziElementi.isDisplayed(),"ListOfUsers yazisi görülemiyor ");
+        softAssert.assertTrue(hotelMyCampPage.basariliGirisYazisi.isDisplayed(),"ListOfUsers yazisi görülemiyor ");
 
         softAssert.assertAll();
         Driver.closeDriver();
