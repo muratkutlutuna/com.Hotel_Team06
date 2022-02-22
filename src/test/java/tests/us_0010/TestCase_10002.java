@@ -1,16 +1,11 @@
 package tests.us_0010;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.HotelMyCampPage;
+import pages.UserReservationPage;
+import utilities.TestBaseRapor;
 
-public class TestCase_10002 {
+public class TestCase_10002 extends TestBaseRapor {
 
 
     @Test
@@ -19,34 +14,28 @@ public class TestCase_10002 {
         TestCase_10001 ilkTest=new TestCase_10001();
         ilkTest.roomsTest();
 
-        HotelMyCampPage hotelMyCampPage=new HotelMyCampPage();
-        hotelMyCampPage.girisTarihiElementi.clear();
-        hotelMyCampPage.girisTarihiElementi.sendKeys("02/20/2022");
-        hotelMyCampPage.cikisTarihiElementi.clear();
-        hotelMyCampPage.cikisTarihiElementi.sendKeys("02/23/2022");
+        extentTest=extentReports.createTest("TestCase_10002","Advanced Search kutusundaki bilgiler dolduruldu ve arama yapildi.");
 
-        Select selectRoom=new Select(hotelMyCampPage.selectRoomTypeElementi);
-        //value ile Double room secenegi secilir
+        UserReservationPage userReservation_page =new UserReservationPage();
+
+        extentTest.info("Advanced Search bilgileri dolduruldu.");
+        userReservation_page.girisTarihiElementi.clear();
+        userReservation_page.girisTarihiElementi.sendKeys("02/26/2022");
+        userReservation_page.cikisTarihiElementi.clear();
+        userReservation_page.cikisTarihiElementi.sendKeys("02/28/2022");
+
+        Select selectRoom=new Select(userReservation_page.selectRoomTypeElementi);
         selectRoom.selectByValue("7");
 
-        Select selectAdult=new Select(hotelMyCampPage.selectAdultCountElementi);
-        //value ile 2 Adult secenegi secilir
+        Select selectAdult=new Select(userReservation_page.selectAdultCountElementi);
         selectAdult.selectByValue("2");
 
-        Select childrenCount=new Select(hotelMyCampPage.childrenElementi);
-        //selectByVisibleText ile 1 children secenegi secilir
+        Select childrenCount=new Select(userReservation_page.childrenElementi);
         childrenCount.selectByVisibleText("1 Children");
 
-        //check location tab
-        hotelMyCampPage.locationElementi.click();
-        //click on Search button
-        hotelMyCampPage.roomsSearchButonu.click();
+        userReservation_page.locationElementi.click();
 
-
-        //acilan sayfada asagidaki Double linkine tiklanarak oda seceneklerine ulasilir
-       hotelMyCampPage.searchtenSonrakiDoubleRoomElementi.click();
-
+        extentTest.pass("Search butonuna tiklandi.");
+        userReservation_page.roomsSearchButonu.click();
     }
-
-
 }

@@ -1,30 +1,25 @@
 package tests.us_0010;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.HotelMyCampPage;
+import pages.UserReservationPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.TestBaseRapor;
 
-public class TestCase_10001 {
+public class TestCase_10001 extends TestBaseRapor {
 
 
     @Test
    public  void roomsTest() {
-        //1- "https://www.hotelmycamp.com/" sayfasina gider
+
+        extentTest=extentReports.createTest("TestCase_10001","www.hotelmycamp.com sayfasina gidildi ve 'Rooms' linkine tiklandi.");
+
+        extentTest.info("\"https://www.hotelmycamp.com/\" sayfasina gidildi.");
         Driver.getDriver().get(ConfigReader.getProperty("HMCUrl"));
 
-        HotelMyCampPage hotelMyCampPage=new HotelMyCampPage();
-        hotelMyCampPage.roomsElementi.click();
+        UserReservationPage userReservation_page =new UserReservationPage();
 
-
+        extentTest.info("Sag ustteki 'Room\" elementine tiklandi.");
+        userReservation_page.roomsElementi.click();
     }
-
 }
