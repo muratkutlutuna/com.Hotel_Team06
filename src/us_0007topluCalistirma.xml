@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="belirli classlar">
+    <test name="classlar"> <!-- test; tek bir test,i değil, butun testleri ifade eder, o yuzden hiyerarşisi suite den sonra gelir-->
+        <classes>
+
+            <class name="tests.us_0007.TC_01"></class>
+            <class name="tests.us_0007.TC_02"></class>
+            <class name="tests.us_0007.TC_03"></class>
+            <class name="tests.us_0007.TC_04"></class>
+            <class name="tests.us_0007.TC_05"></class>
+
+        </classes>
+
+    </test>
+
+</suite>
+
