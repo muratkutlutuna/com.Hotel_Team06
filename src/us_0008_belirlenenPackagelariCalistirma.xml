@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="HotelProjektTeam06">
+    <test name="belli packagelari calistirma">
+        <packages>
+            <package name="tests.us_0008"></package>
+
+        </packages>
+    </test>
+</suite>
