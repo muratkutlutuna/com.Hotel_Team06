@@ -12,7 +12,8 @@ import utilities.TestBaseRapor;
 
 public class TestCase_05002 extends TestBaseRapor {
 
-
+    HotelListPage hotelListPage;
+    HotelMyCampPage hotelMyCampPage;
 
     @Test
     public void test01() {
@@ -20,8 +21,8 @@ public class TestCase_05002 extends TestBaseRapor {
         Driver.getDriver().get(ConfigReader.getProperty("HMCUrl"));
         extentTest=extentReports.createTest("HotelMyCamp us_0005  TestCase_05001","https://hotelmycamp.com test edildi");
 
-        HotelMyCampPage hotelMyCampPage = new HotelMyCampPage();
-        HotelListPage hotelListPage=new HotelListPage();
+        hotelMyCampPage = new HotelMyCampPage();
+        hotelListPage=new HotelListPage();
 
         hotelMyCampPage.girisYap();
         extentTest.info("giris yapildigi kontrol edildi");
@@ -37,10 +38,7 @@ public class TestCase_05002 extends TestBaseRapor {
         Assert.assertTrue(hotelListPage.editHotelYaziElementi.isDisplayed());
         extentTest.info("Edit otel yazisinin goruldugu kontrol edildi");
 
-        Actions actions=new Actions(Driver.getDriver());
-        actions.moveToElement(hotelListPage.managementElement).perform();
-        ReusableMethods.waitFor(2);
-        hotelListPage.logOutElementi.click();
+
 
 
     }
